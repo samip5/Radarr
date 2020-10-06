@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using NzbDrone.Core.CustomFormats;
 using Radarr.Http.ClientSchema;
 using Radarr.Http.REST;
@@ -9,7 +8,6 @@ namespace Radarr.Api.V3.CustomFormats
 {
     public class CustomFormatResource : RestResource
     {
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public override int Id { get; set; }
         public string Name { get; set; }
         public bool IncludeCustomFormatWhenRenaming { get; set; }

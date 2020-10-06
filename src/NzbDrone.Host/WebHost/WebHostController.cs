@@ -113,9 +113,11 @@ namespace Radarr.Host
                         options.PayloadSerializerSettings = Json.GetSerializerSettings();
                     });
 #else
-                    .AddNewtonsoftJsonProtocol(options =>
+                    .AddJsonProtocol(options =>
                     {
-                        options.PayloadSerializerSettings = Json.GetSerializerSettings();
+                        var settings = STJson.GetSerializerSettings();
+                        settings.Converters.Add(new PolymorphicWriteOnlyJsonConverter<NzbDrone.Core.Messaging.Commands.Command>());
+                        options.PayloadSerializerOptions = settings;
                     });
 #endif
 

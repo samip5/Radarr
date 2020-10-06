@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using NzbDrone.Core.DecisionEngine;
 using NzbDrone.Core.Indexers;
 using NzbDrone.Core.Languages;
@@ -51,8 +50,6 @@ namespace Radarr.Api.V3.Indexers
         public int? Leechers { get; set; }
         public DownloadProtocol Protocol { get; set; }
 
-        // Sent when queuing an unknown release
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int? MovieId { get; set; }
     }
 
